@@ -2,8 +2,8 @@ package com.weather.ku.util;
 
 import android.text.TextUtils;
 
+import com.weather.ku.db.CoolWeatherDB;
 import com.weather.ku.model.City;
-import com.weather.ku.model.CoolWeatherDB;
 import com.weather.ku.model.County;
 import com.weather.ku.model.Province;
 public class Utility {

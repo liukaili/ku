@@ -1,4 +1,4 @@
-package com.weather.ku.model;
+package com.weather.ku.db;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.weather.ku.db.CoolWeatherOpenHelper;
+import com.weather.ku.model.City;
+import com.weather.ku.model.County;
+import com.weather.ku.model.Province;
 
 public class CoolWeatherDB {
 	//Êý¾Ý¿âÃû
@@ -67,10 +69,7 @@ public List<Province> loadProvinces()
 			 
 		 }while(cursor.moveToNext());
 	 }
-	 if(cursor!=null)
-	 {
-		 cursor.close();
-	 }
+	
 	 return list;
 			
 }
@@ -111,10 +110,7 @@ public List<City> loadCities(int provinceId)
 			 
 		 }while(cursor.moveToNext());
 	 }
-	 if(cursor!=null)
-	 {
-		 cursor.close();
-	 }
+
 	 return list;
 }
 
@@ -152,11 +148,7 @@ public List<County> loadCounties(int cityId)
 			 
 		 }while(cursor.moveToNext());
 	 }
-	 if(cursor!=null)
-	 {
-		 cursor.close();
-	 }
-	
+
 	return list;
 }
 }
