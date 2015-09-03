@@ -157,10 +157,10 @@ public class ChooseAreaActivity extends Activity {
 		String address;
 		if(!TextUtils.isEmpty(code))
 		{
-			address="view-source:http://www.weather.com.cn/data/list3/city"+code+".xml";	//中国天气API接口已变
+			address="http://www.weather.com.cn/data/list3/city"+code+".xml";	//中国天气API接口已变
 		}
 		else{
-			address="view-source:http://www.weather.com.cn/data/list3/city.xml";
+			address="http://www.weather.com.cn/data/list3/city.xml";
 		}
 		showProgressDialog();
 		HttpUtil.sendHttpRequest(address,new  HttpCallbackListener() {

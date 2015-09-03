@@ -3,9 +3,8 @@ package com.weather.ku.util;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class HttpUtil {
 	public static void sendHttpRequest(final String adddress, final HttpCallbackListener listener)
@@ -13,12 +12,13 @@ public class HttpUtil {
 		new Thread(new Runnable() {
 			
 			public void run() {
-			HttpsURLConnection connection=null;
+			HttpURLConnection connection=null;
 			try {
 				URL url=new URL(adddress);
-				connection=(HttpsURLConnection)url.openConnection();
+				connection=(HttpURLConnection)url.openConnection();
 				connection.setRequestMethod("GET");
-				connection.setConnectTimeout(8000);
+				connection.setConnectTimeout(80000);
+				connection.setReadTimeout(80000);
 				InputStream in=connection.getInputStream();
 				BufferedReader reader=new BufferedReader(new InputStreamReader(in));
 				StringBuilder response=new StringBuilder();
